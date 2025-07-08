@@ -81,7 +81,7 @@ public  class BookStoreTest {
 
         TestBuyBook(bookInventory, paperBookDto);
 
-        // 2- Testing Paper Book Dto
+        // 2- Testing EBook  Dto
         GetBookDto eBookDto = new GetBookDto();
         eBookDto.ISBN = "C124";
         eBookDto.email = "lojaynk@gmail.com";
@@ -95,10 +95,16 @@ public  class BookStoreTest {
 
         TestBuyBook(bookInventory, demoBook);
 
-        // 4- Testing Paper Book With InSufficient quantity
+        // 4- Test Invalid book id
+        GetBookDto paperBookDto03 = new GetBookDto();
+        paperBookDto03.ISBN = "C1g6";
+
+        TestBuyBook(bookInventory, paperBookDto03);
+
+        // 5- Testing Paper Book With InSufficient quantity
         GetBookDto paperBookDto02 = new GetBookDto();
         paperBookDto02.ISBN = "C126";
-        paperBookDto02.quantity = 17;
+        paperBookDto02.quantity = 21;
         paperBookDto02.address = "123 Street, Giza, Hadayek";
         TestBuyBook(bookInventory, paperBookDto02);
 

@@ -23,3 +23,86 @@
 ## Class Diagram
 
 ![Class Diagram](./class_diagram_quantum_books.jpg)
+
+## Screen of working Program
+
+### Adding Books
+```java
+books.add(new DemoBook("C122", "Fitness", 2012));
+books.add(new DemoBook("C123", "C++ Best Practice", 2020));
+books.add(new EBook("C124", "Java", "pdf", 2015, 100.45, emailStrategy));
+books.add(new EBook("C125", "API Design", "pdf", 2017, 100.45, emailStrategy));
+books.add(new PaperBook("C126", "API Design", 20, 2018, 50, shippingStrategy));
+```
+
+![Adding Books](./adding_books.jpg)
+
+
+### Removing Book Before 2013
+
+
+```java
+TestRemoveBookBefore(bookInventory,2013);
+```
+
+![Adding Books](./removing_before_year.jpg)
+
+
+
+### Buy Books
+
+#### Buy 4 paper books
+
+```java
+ GetBookDto paperBookDto = new GetBookDto();
+paperBookDto.ISBN = "C126";
+paperBookDto.quantity = 4;
+paperBookDto.address = "123 Street, Giza, Hadayek";
+TestBuyBook(bookInventory, paperBookDto);
+```
+
+![Buy Paper Book](./buy_paper_book.jpg)
+
+#### Buy EBook 
+```java
+System.out.println("Demo Book:  ");
+GetBookDto demoBook = new GetBookDto();
+demoBook.ISBN = "C123";
+TestBuyBook(bookInventory, demoBook);
+```
+![Buy EBook Book](./buy_ebook.jpg)
+
+
+#### Buy Demo Book
+```java
+System.out.println("Demo Book:  ");
+GetBookDto demoBook = new GetBookDto();
+demoBook.ISBN = "C123";
+
+TestBuyBook(bookInventory, demoBook);
+```
+
+![Buy Demo Book](./buy_demo.jpg)
+
+
+### Buy Book With Invalid ISBN
+```java
+GetBookDto paperBookDto03 = new GetBookDto();
+paperBookDto03.ISBN = "C1g6";
+TestBuyBook(bookInventory, paperBookDto03);
+```
+
+![Book ISBN not found](./book_not_found.jpg)
+
+
+#### Buy Book with invalid quantity
+
+```java
+GetBookDto paperBookDto02 = new GetBookDto();
+paperBookDto02.ISBN = "C126";
+paperBookDto02.quantity = 21;
+paperBookDto02.address = "123 Street, Giza, Hadayek";
+TestBuyBook(bookInventory, paperBookDto02);
+```
+
+![No Enough Copies](./no_enough_copies.jpg)
